@@ -1,0 +1,14 @@
+1. Create a file called init.cmd and save it to your user folder
+C:\Users\YourName\init.cmd
+
+@echo off
+doskey ls=dir
+
+2. Register it to be applied automatically whenever cmd.exe is executed
+In the Command Prompt, run:
+reg add "HKCU\Software\Microsoft\Command Processor" /v AutoRun /t REG_EXPAND_SZ /d "%"USERPROFILE"%\init.cmd" /f
+
+3. Restart the Command Prompt
+Now close/open the Command Prompt and the aliases will be available.
+To unregister, run:
+reg delete "HKCU\Software\Microsoft\Command Processor" /v AutoRun
